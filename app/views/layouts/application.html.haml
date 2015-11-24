@@ -7,7 +7,15 @@
 	= csrf_meta_tags 
 
 %body
-	- Category.all.each do |category|
-		= link_to category.name, tasks_path(category: category.name)
+	%nav.navbar.navbar-default
+		.container
+			.navbar-brand TaskRabbit
+			%ul.nav.navbar-nav
+				%li= link_to "All Tasks", root_path
+				- Category.all.each do |category|				
+					%li= link_to category.name, tasks_path(category: category.name)
+			= link_to "New Task", new_task_path, class: "navbar-text navbar-right navbar-link"
 
-	= yield
+	.container
+		.col-md-8.col-md-offset-2
+			= yield
