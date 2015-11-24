@@ -1,0 +1,7 @@
+= simple_form_for(@task, html: { class: 'form-horizontal'}) do |f|
+	= f.input :title, label: "Task Title"
+	= f.input :description, label: "Task Description"
+	= f.input :company, label: "Your Company"
+	= f.input :url, label: "Link to Task"
+	%br/
+	= f.button :submit
